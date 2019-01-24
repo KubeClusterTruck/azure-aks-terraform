@@ -7,3 +7,6 @@
 
 # .tfvars files
 *.tfvars
+
+# .plan Output files
+*.plan
