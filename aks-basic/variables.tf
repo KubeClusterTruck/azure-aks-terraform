@@ -26,7 +26,7 @@ variable location {
 }
 
 variable log_analytics_workspace_name {
-    default = "testLogAnalyticsWorkspaceName"
+    default = "tftest-k8sbasic-lawks"
 }
 
 # refer https://azure.microsoft.com/global-infrastructure/services/?products=monitor for log analytics available regions
@@ -36,5 +36,5 @@ variable log_analytics_workspace_location {
 
 # refer https://azure.microsoft.com/pricing/details/monitor/ for log analytics pricing 
 variable log_analytics_workspace_sku {
-    default = "PerGB2018"
+    default = "Standalone"
 }
