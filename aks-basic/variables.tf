@@ -2,7 +2,10 @@ variable "client_id" {}
 variable "client_secret" {}
 
 variable "agent_count" {
-    default = 3
+    default = 5
+}
+variable "aks_version" {
+    default = "1.11.6"
 }
 
 variable "ssh_public_key" {

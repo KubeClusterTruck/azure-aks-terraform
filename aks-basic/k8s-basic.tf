@@ -38,11 +38,12 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     }
 
     agent_pool_profile {
-        name            = "agentpool"
-        count           = "${var.agent_count}"
-        vm_size         = "Standard_DS1_v2"
-        os_type         = "Linux"
-        os_disk_size_gb = 30
+        name               = "agentpool"
+        count              = "${var.agent_count}"
+        kubernetes_version = "${var.aks_version}"
+        vm_size            = "Standard_DS1_v2"
+        os_type            = "Linux"
+        os_disk_size_gb    = 30
     }
 
     service_principal {
