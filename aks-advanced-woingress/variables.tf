@@ -13,15 +13,15 @@ variable "ssh_public_key" {
 }
 
 variable "dns_prefix" {
-    default = "ghtsp-k8sbasic"
+    default = "ghtsp-k8s-advanced01"
 }
 
 variable cluster_name {
-    default = "k8sbasic"
+    default = "k8sadvwoi-01"
 }
 
 variable resource_group_name {
-    default = "tftest-k8sbasic"
+    default = "tftest-k8sadvanced01"
 }
 
 variable location {
@@ -29,7 +29,7 @@ variable location {
 }
 
 variable log_analytics_workspace_name {
-    default = "tftest-k8sbasic-lawks"
+    default = "tftest-k8sadvanced01-lawks"
 }
 
 # refer https://azure.microsoft.com/global-infrastructure/services/?products=monitor for log analytics available regions
