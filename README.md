@@ -1,4 +1,5 @@
 # azure-aks-terraform
 Automated Terraform Provisioning of AKS Clusters in Azure
 
-* link:tf_init/terraform_init.sh[Terraform Azure Backend Initialization]
+[Terraform Azure Backend Initialization](https://github.com/KubeClusterTruck/azure-aks-terraform/tree/master/tf-init)
+
