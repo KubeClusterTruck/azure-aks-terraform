@@ -1,0 +1,1 @@
+Source this script into your current shell( e.g from bash:  source ./terraform_init.sh) after reviewing script doco.  Requires a Service Principal, Storage Account, and Key Vault to be created with entries for the Service Principal and Storage Account secrets with values being the Service Principal and Storage Acct names.
