@@ -5,7 +5,7 @@ variable "agent_count" {
     default = 5
 }
 variable "aks_version" {
-    default = "1.11.6"
+    default = "1.11.8"
 }
 
 variable "ssh_public_key" {
