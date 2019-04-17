@@ -5,7 +5,7 @@ variable "agent_count" {
     default = 5
 }
 variable "aks_version" {
-    default = "1.11.6"
+    default = "1.11.9"
 }
 
 variable "ssh_public_key" {
@@ -13,15 +13,15 @@ variable "ssh_public_key" {
 }
 
 variable "dns_prefix" {
-    default = "ghtsp-k8s-advanced01"
+    default = "ghtsp-k8s-adv01"
 }
 
 variable cluster_name {
-    default = "k8sadvwoi-01"
+    default = "k8sadv-01"
 }
 
 variable resource_group_name {
-    default = "tftest-k8sadvanced01"
+    default = "ghtsp-k8sadv01_rg"
 }
 
 variable location {
@@ -29,7 +29,7 @@ variable location {
 }
 
 variable log_analytics_workspace_name {
-    default = "tftest-k8sadvanced01-lawks"
+    default = "ghstp-k8sadv01-lawks"
 }
 
 # refer https://azure.microsoft.com/global-infrastructure/services/?products=monitor for log analytics available regions
