@@ -11,7 +11,7 @@ resource "azurerm_virtual_network" "k8s-advanced-woi" {
 resource "azurerm_subnet" "k8s-advanced-woi" {
   name                 = "aks-internal01"
   resource_group_name  = "${azurerm_resource_group.k8s-advanced-woi.name}"
-  address_prefix       = "172.10.10.0/22"
+  address_prefix       = "172.10.8.0/22"
   virtual_network_name = "${azurerm_virtual_network.k8s-advanced-woi.name}"
 }
 resource "azurerm_log_analytics_workspace" "k8s-advanced-woi" {
