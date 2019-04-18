@@ -47,6 +47,10 @@ resource "azurerm_kubernetes_cluster" "k8s-advanced-woi" {
         }
     }
 
+    # Review including the following additional values:
+    # dns_prefix:                        "" => "<computed>"
+    # fqdn:                              "" => "<computed>"
+    # max_pods:                          "" => "<computed>"
     agent_pool_profile {
         name               = "agentpool"
         count              = "${var.agent_count}"
@@ -62,6 +66,12 @@ resource "azurerm_kubernetes_cluster" "k8s-advanced-woi" {
         client_secret = "${var.client_secret}"
     }
     
+    # Review including the following complete set of values:
+    # dns_service_ip:                       "" => "<computed>"
+    # docker_bridge_cidr:                   "" => "<computed>"
+    # network_plugin:                       "" => "azure"
+    # pod_cidr:                             "" => "<computed>"
+    # service_cidr:                         "" => "<computed>"
     network_profile {
         network_plugin = "azure"
     }
