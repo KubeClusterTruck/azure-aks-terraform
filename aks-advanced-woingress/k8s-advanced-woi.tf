@@ -3,7 +3,7 @@ resource "azurerm_resource_group" "k8s-advanced-woi" {
     location = "${var.location}"
 }
 resource "azurerm_virtual_network" "k8s-advanced-woi" {
-  name                = "${var.prefix}-network"
+  name                = "${var.dns_prefix}-network"
   location            = "${azurerm_resource_group.k8s-advanced-woi.location}"
   resource_group_name = "${azurerm_resource_group.k8s-advanced-woi.name}"
   address_space       = ["172.10.0.0/16"]
