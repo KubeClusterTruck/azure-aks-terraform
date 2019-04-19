@@ -10,7 +10,7 @@ Review doco on deploying AKS with Advanced Networking to get a high-level unders
 
 As additional configurations that can be layered onto AKS are defined/automated they will be referenced here such as AAD/Cluster Role integration, Ingress Options, Storage Class/Persistence and other Advanced or Cluster Hardening best practices.
 
-**Usage Instructions**
+## Usage Instructions
 
 ***Pre-Requisites*** - Review **k8s-advanced-woi.tf** and **variables.tf**, values used may not either work or follow your conventions, clone this repo and make appropriate changes as needed.
 
