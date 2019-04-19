@@ -11,7 +11,7 @@ https://docs.microsoft.com/en-us/azure/terraform/terraform-create-k8s-cluster-wi
 ```
 source ../tf-init/terraform_init.sh <location> <keyvault> <service principal client-id> <storage account>
 ```
-2.  Execute your Terraform Plan & Apply to create the AKS Cluster with Advanced Networking the Log Analytics/Container Insights Add-On:
+2.  Execute your Terraform Plan & Apply to create the AKS Cluster and with the Log Analytics/Container Insights Add-On:
 ```
 terraform plan -out out.plan
 
