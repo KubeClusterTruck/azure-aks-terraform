@@ -7,7 +7,7 @@
 # $3  - Azure AD App Id/Service Principal (must be Contributor in Target Azure Resource Groups)
 # $4  - Azure Storage Account for Terraform State (assumes Container named "tfstate" created)
 #
-# Set Required Environment Variables (will use current/defaul Azure Subscription/Tenant)
+# Set Required Environment Variables (will use current/default Azure Subscription/Tenant)
 #
 echo "--- Setting environment variables for Terraform"
 export ARM_LOCATION=$1
