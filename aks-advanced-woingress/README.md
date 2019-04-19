@@ -12,7 +12,7 @@ As additional configurations that can be layered onto AKS are defined/automated 
 
 ## Usage Instructions
 
-***Pre-Requisites*** - Review **k8s-advanced-woi.tf** and **variables.tf**, values used may not either work or follow your conventions, clone this repo and make appropriate changes as needed.
+***Pre-Requisites*** - Review **k8s-advanced-woi.tf** and **variables.tf**, values used may not either work in your Azure Subscription or follow your conventions, clone this repo and make appropriate changes as needed.
 
 1.  Review basic Azure Terraform setup instructions found [here](../tf-init/README.md).  Initialize your Terraform environment and back-end by executing the following script from this sub-directory:
 ```
