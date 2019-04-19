@@ -7,3 +7,5 @@ Start by reviewing Azure Terraform setup:  https://docs.microsoft.com/en-us/azur
 
 [Basic AKS Cluster Deployment](https://github.com/KubeClusterTruck/azure-aks-terraform/tree/master/aks-basic)
 
+[AKS Cluster with Advanced Networking](./aks-advanced-woingress/README.md)
+
