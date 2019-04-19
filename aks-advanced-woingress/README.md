@@ -10,4 +10,26 @@ Review doco on deploying AKS with Advanced Networking to get a high-level unders
 
 As additional configurations that can be layered onto AKS are defined/automated they will be referenced here such as AAD/Cluster Role integration, Ingress Options, Storage Class/Persistence and other Advanced or Cluster Hardening best practices.
 
+**Usage Instructions**
+
+***Pre-Requisites*** - Review **k8s-advanced-woi.tf** and **variables.tf**, values used may not either work or follow your conventions, clone this repo and make appropriate changes as needed.
+
+1.  Review basic Azure Terraform setup instructions found [here](../tf-init/README.md).  Initialize your Terraform environment and back-end by executing the following script from this sub-directory:
+```
+source ../tf-init/terraform_init.sh <location> <keyvault> <service principal client-id> <storage account>
+```
+2.  Execute your Terraform Plan & Apply to create the AKS Cluster with Advanced Networking the Log Analytics/Container Insights Add-On:
+```
+terraform plan -out out.plan
+
+terraform apply out.plan
+```
+3. Perform basic validation of your AKS Cluster using Output from Terraform apply:
+```
+echo "$(terraform output kube_config)" > ~/azurek8s-advanced-woi
+export KUBECONFIG=~/azurek8s-advanced-woi
+
+kubectl get nodes
+```
+
 
