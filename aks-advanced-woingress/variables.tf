@@ -37,9 +37,9 @@ variable cluster_agent_fqdn {
 variable cluster_agent_vm_size {
     default = "Standard_DS1_v2"
 }
-# For Max Pods, start with 10 X Agent vCPU Count
+# For Max Pods, start with 30 or 10 X Agent vCPU Count, whichever is largest
 variable cluster_agent_max_pods {
-    default = "20"
+    default = "30"
 }
 variable cluster_agent_os_type {
     default = "Linux"
