@@ -65,14 +65,25 @@ resource "azurerm_kubernetes_cluster" "k8s-advanced-woi" {
     
     network_profile {
         network_plugin = "${var.cluster_network_plugin}"
-    #   *** Use for Advanced Cluster Network Security *** 
+    #   *** Use the following for Advanced Cluster Network Configuration and Security *** 
     #   network_policy = ""  
-        dns_service_ip = "${var.cluster_dns_service_ip}"
-        docker_bridge_cidr = "${var.cluster_docker_bridge_cidr}"
-        pod_cidr = "${var.cluster_pod_cidr}"
-        service_cidr = "${var.cluster_service_cidr}"
+    #   dns_service_ip = "${var.cluster_dns_service_ip}"
+    #   docker_bridge_cidr = "${var.cluster_docker_bridge_cidr}"
+    #   pod_cidr = "${var.cluster_pod_cidr}"
+    #   service_cidr = "${var.cluster_service_cidr}"
     }
 
+    role_based_access_control {
+    #   Explicity Enabled by Default
+        enabled = true
+    #   Uncomment for Advanced AAD Integration (recommended for Production)
+    #   azure_active_directory {
+    #       client_app_id       = ""
+    #       server_app_id       = ""
+    #       server_app_secret   = ""
+    #       tenant_id           = ""
+    #   }
+    }
     addon_profile {
         oms_agent {
         enabled                    = true
