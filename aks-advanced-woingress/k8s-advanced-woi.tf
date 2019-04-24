@@ -3,15 +3,15 @@ resource "azurerm_resource_group" "k8s-advanced-woi" {
     location = "${var.location}"
 }
 resource "azurerm_virtual_network" "k8s-advanced-woi" {
-  name                = "${var.dns_prefix}-network"
+  name                = "${var.dns_prefix}-vnet"
   location            = "${azurerm_resource_group.k8s-advanced-woi.location}"
   resource_group_name = "${azurerm_resource_group.k8s-advanced-woi.name}"
-  address_space       = ["172.10.0.0/16"]
+  address_space       = "${var.vnet_address_space}"
 }
 resource "azurerm_subnet" "k8s-advanced-woi" {
-  name                 = "aks-internal01"
+  name                 = "${var.cluster_subnet_name}"
   resource_group_name  = "${azurerm_resource_group.k8s-advanced-woi.name}"
-  address_prefix       = "172.10.8.0/22"
+  address_prefix       = "${var.cluster_subnet_address_prefix}"
   virtual_network_name = "${azurerm_virtual_network.k8s-advanced-woi.name}"
 }
 resource "azurerm_log_analytics_workspace" "k8s-advanced-woi" {
@@ -37,26 +37,24 @@ resource "azurerm_kubernetes_cluster" "k8s-advanced-woi" {
     location            = "${azurerm_resource_group.k8s-advanced-woi.location}"
     resource_group_name = "${azurerm_resource_group.k8s-advanced-woi.name}"
     dns_prefix          = "${var.dns_prefix}"
+    fqdn                = "${var.cluster_fqdn}"
     kubernetes_version  = "${var.aks_version}"
+    max_pods            = "${var.cluster_agent_max_pods}"
 
     linux_profile {
-        admin_username = "ubuntu"
-
+        admin_username = "${var.cluster_linux_admin_username}"
+ 
         ssh_key {
             key_data = "${file("${var.ssh_public_key}")}"
         }
     }
 
-    # Review including the following additional values:
-    # dns_prefix:                        "" => "<computed>"
-    # fqdn:                              "" => "<computed>"
-    # max_pods:                          "" => "<computed>"
     agent_pool_profile {
-        name               = "agentpool"
+        name               = "${var.dns_prefix}-agentpool"
         count              = "${var.agent_count}"
-        vm_size            = "Standard_DS1_v2"
-        os_type            = "Linux"
-        os_disk_size_gb    = 30
+        vm_size            = "${var.cluster_agent_vm_size}"                           
+        os_type            = "${var.cluster_agent_os_type}"
+        os_disk_size_gb    = "${var.cluster_agent_os_disk_gb}"
         # Required for advanced networking
         vnet_subnet_id = "${azurerm_subnet.k8s-advanced-woi.id}"
     }
@@ -69,7 +67,6 @@ resource "azurerm_kubernetes_cluster" "k8s-advanced-woi" {
     # Review including the following complete set of values:
     # dns_service_ip:                       "" => "<computed>"
     # docker_bridge_cidr:                   "" => "<computed>"
-    # network_plugin:                       "" => "azure"
     # pod_cidr:                             "" => "<computed>"
     # service_cidr:                         "" => "<computed>"
     network_profile {
