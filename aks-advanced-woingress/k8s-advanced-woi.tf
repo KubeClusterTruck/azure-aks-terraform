@@ -73,10 +73,8 @@ resource "azurerm_kubernetes_cluster" "k8s-advanced-woi" {
     #   service_cidr = "${var.cluster_service_cidr}"
     }
 
+    #Uncomment for Advanced AAD Integration (recommended for Production)
     #role_based_access_control {
-    #   Explicity Enabled by Default
-    #   enabled = true
-    #   Uncomment for Advanced AAD Integration (recommended for Production)
     #   azure_active_directory {
     #       client_app_id       = ""
     #       server_app_id       = ""
