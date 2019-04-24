@@ -1,9 +1,5 @@
 variable "client_id" {}
 variable "client_secret" {}
-
-variable "agent_count" {
-    default = 5
-}
 variable "aks_version" {
     default = "1.11.9"
 }
@@ -28,13 +24,19 @@ variable "cluster_subnet_address_prefix" {
 variable cluster_name {
     default = "k8sadv-01"
 }
-variable cluster_fqdn {
+variable cluster_agent_pool_name {
+    default = "agentpool"
+}
+variable "cluster_agent_count" {
+    default = 5
+}
+variable cluster_agent_fqdn {
     default = ""
 }
 variable cluster_agent_vm_size {
     default = "Standard_DS1_v2"
 }
-# For Max Pods, start with 10 X Node vCPU Count
+# For Max Pods, start with 10 X Agent vCPU Count
 variable cluster_agent_max_pods {
     default = "20"
 }

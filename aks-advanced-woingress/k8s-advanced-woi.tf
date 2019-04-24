@@ -37,9 +37,7 @@ resource "azurerm_kubernetes_cluster" "k8s-advanced-woi" {
     location            = "${azurerm_resource_group.k8s-advanced-woi.location}"
     resource_group_name = "${azurerm_resource_group.k8s-advanced-woi.name}"
     dns_prefix          = "${var.dns_prefix}"
-    fqdn                = "${var.cluster_fqdn}"
     kubernetes_version  = "${var.aks_version}"
-    max_pods            = "${var.cluster_agent_max_pods}"
 
     linux_profile {
         admin_username = "${var.cluster_linux_admin_username}"
@@ -50,11 +48,13 @@ resource "azurerm_kubernetes_cluster" "k8s-advanced-woi" {
     }
 
     agent_pool_profile {
-        name               = "${var.dns_prefix}-agentpool"
-        count              = "${var.agent_count}"
+        name               = "${var.cluster_agent_pool_name}"
+        fqdn               = "${var.cluster_fqdn}"
+        count              = "${var.cluster_agent_count}"
         vm_size            = "${var.cluster_agent_vm_size}"                           
         os_type            = "${var.cluster_agent_os_type}"
         os_disk_size_gb    = "${var.cluster_agent_os_disk_gb}"
+        max_pods           = "${var.cluster_agent_max_pods}"
         # Required for advanced networking
         vnet_subnet_id = "${azurerm_subnet.k8s-advanced-woi.id}"
     }
