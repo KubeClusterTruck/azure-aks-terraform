@@ -12,7 +12,8 @@ variable "dns_prefix" {
     default = "ghtsp-k8s-adv01"
 }
 variable "vnet_address_space" {
-    default = "172.10.0.0/16"
+    type = "list"
+    default = ["172.10.0.0/16"]
 }
 variable "cluster_subnet_name" {
     default = "aks-cluster"

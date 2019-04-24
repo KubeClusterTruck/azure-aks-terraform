@@ -49,7 +49,7 @@ resource "azurerm_kubernetes_cluster" "k8s-advanced-woi" {
 
     agent_pool_profile {
         name               = "${var.cluster_agent_pool_name}"
-        fqdn               = "${var.cluster_agent_fqdn}"
+    #   fqdn               = "${var.cluster_agent_fqdn}"
         count              = "${var.cluster_agent_count}"
         vm_size            = "${var.cluster_agent_vm_size}"                           
         os_type            = "${var.cluster_agent_os_type}"
