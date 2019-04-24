@@ -51,7 +51,21 @@ variable cluster_agent_os_disk_gb {
 variable cluster_linux_admin_username {
     default = "ubuntu"
 }
-
+variable cluster_network_plugin {
+    default = "azure"
+}
+variable cluster_docker_bridge_cidr {
+    default = ""
+}
+variable cluster_dns_service_ip {
+    default = ""
+}
+variable cluster_pod_cidr {
+    default = ""
+}
+variable cluster_service_cidr {
+    default = ""
+}
 variable resource_group_name {
     default = "ghtsp-k8sadv01_rg"
 }

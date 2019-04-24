@@ -49,7 +49,6 @@ resource "azurerm_kubernetes_cluster" "k8s-advanced-woi" {
 
     agent_pool_profile {
         name               = "${var.cluster_agent_pool_name}"
-    #   fqdn               = "${var.cluster_agent_fqdn}"
         count              = "${var.cluster_agent_count}"
         vm_size            = "${var.cluster_agent_vm_size}"                           
         os_type            = "${var.cluster_agent_os_type}"
@@ -64,13 +63,14 @@ resource "azurerm_kubernetes_cluster" "k8s-advanced-woi" {
         client_secret = "${var.client_secret}"
     }
     
-    # Review including the following complete set of values:
-    # dns_service_ip:                       "" => "<computed>"
-    # docker_bridge_cidr:                   "" => "<computed>"
-    # pod_cidr:                             "" => "<computed>"
-    # service_cidr:                         "" => "<computed>"
     network_profile {
-        network_plugin = "azure"
+        network_plugin = "${var.cluster_network_plugin}"
+    #   *** Use for Advanced Cluster Network Security *** 
+    #   network_policy = ""  
+        dns_service_ip = "${var.cluster_dns_service_ip}"
+        docker_bridge_cidr = "${var.cluster_docker_bridge_cidr}"
+        pod_cidr = "${var.cluster_pod_cidr}"
+        service_cidr = "${var.cluster_service_cidr}"
     }
 
     addon_profile {
