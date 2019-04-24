@@ -38,6 +38,7 @@ variable cluster_agent_vm_size {
     default = "Standard_DS1_v2"
 }
 # For Max Pods, start with 30 or 10 X Agent vCPU Count, whichever is largest
+# This Value is constrained by the Cluster Subnet Size, which limits total possible Pods
 variable cluster_agent_max_pods {
     default = "30"
 }
