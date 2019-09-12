@@ -1,4 +1,4 @@
-# aks-baskc
+# aks-basic
 Basic Terraform Provisioning of an AKS Cluster in Azure based on the following recipe:
 
 https://docs.microsoft.com/en-us/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks
