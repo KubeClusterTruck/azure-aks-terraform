@@ -89,7 +89,4 @@ resource "azurerm_kubernetes_cluster" "k8s-advanced-woi" {
         }
     }
 
-    tags {
-        Environment = "AKS Advanced Demos"
-    }
 }
